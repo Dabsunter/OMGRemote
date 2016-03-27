@@ -1,0 +1,8 @@
+name: OMGRemote
+main: fr.dabsunter.omgremote.Main
+version: 1.0.0
+description: Lanceur de serveur paralelle
+
+commands:
+  send:
+    usage: "/<command>"
