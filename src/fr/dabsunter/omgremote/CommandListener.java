@@ -22,14 +22,13 @@ public class CommandListener implements Listener {
 		String label = command[0].toLowerCase();
 		if(executors.containsKey(label)) {
 			String[] args = trim(command);
-			boolean cancel = executors.get(label).onCommand(
+			executors.get(label).onCommand(
 				e.getSender(),
 				null,
 				label,
 				args
 				);
-			if(cancel)
-				e.setCommand(null);
+			e.setCommand("nothing");
 		}
 		
 		

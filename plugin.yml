@@ -1,4 +1,7 @@
 name: OMGRemote
 main: fr.dabsunter.omgremote.Main
-version: 1.0.0
+version: 1.1.0
 description: Lanceur de serveur paralelle
+
+commands:
+  nothing: {}

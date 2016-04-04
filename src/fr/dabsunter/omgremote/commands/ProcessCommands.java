@@ -40,7 +40,7 @@ public class ProcessCommands implements CommandExecutor {
 		} else {
 			new ProcessManager(name, command);
 			selected = name;
-			sender.sendMessage("Successfully launched and selected " + name + "process");
+			sender.sendMessage("Successfully launched and selected " + name + " process");
 		}
 	}
 	
