@@ -1,2 +1,4 @@
-server-folder: "server"
-command: "java -Xmx1024M -jar server.jar"
+servers:
+  server1:
+    folder: "server"
+    command: "java -Xmx1024M -jar server.jar"
