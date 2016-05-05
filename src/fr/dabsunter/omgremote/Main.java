@@ -30,6 +30,13 @@ public class Main extends JavaPlugin {
 		CommandListener.register("send", processCmd);
 		CommandListener.register("kill", processCmd);
 		
+		getLogger().info(
+				"Running on " + System.getProperty("os.name") +
+				" v" + System.getProperty("os.version") +
+				" (" + System.getProperty("os.arch") +
+				") with Java " + System.getProperty("java.version")
+				);
+		
 		ConfigurationSection servers = getConfig().getConfigurationSection("servers");
 		for(String key : servers.getKeys(false)) {
 			ConfigurationSection section = servers.getConfigurationSection(key);
@@ -44,6 +51,8 @@ public class Main extends JavaPlugin {
 				directory = new File(section.getString("folder"));
 			}
 			new ProcessManager(key, command, directory);
+			getServer().getConsoleSender().sendMessage(
+					"Successfully launched " + key + " process");
 		}
 	}
 	

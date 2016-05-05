@@ -38,7 +38,16 @@ public class ProcessCommands implements CommandExecutor {
 		if(ProcessManager.get(name) != null) {
 			sender.sendMessage("Process " + name + " is already running !");
 		} else {
-			new ProcessManager(name, command);
+			if(command.isEmpty()) {
+				try{
+					new ProcessManager(name);
+				} catch(NullPointerException ex) {
+					sender.sendMessage("Process " + name + " was never started before !");
+					return;
+				}
+			} else {
+				new ProcessManager(name, command);
+			}
 			selected = name;
 			sender.sendMessage("Successfully launched and selected " + name + " process");
 		}
@@ -48,7 +57,7 @@ public class ProcessCommands implements CommandExecutor {
 		String name = Tools.join(args);
 		if(ProcessManager.get(name) != null) {
 			selected = name;
-			sender.sendMessage("Successfully selected " + name + "process");
+			sender.sendMessage("Successfully selected " + name + " process");
 		} else {
 			sender.sendMessage(name + " process does not exist !");
 		}

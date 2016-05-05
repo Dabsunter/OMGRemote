@@ -6,10 +6,12 @@ import java.util.List;
 public class Tools {
 	
 	public static String join(String[] args) {
-		String result = "";
-		for(String arg : args)
-			result += " " + arg;
-		return result.substring(1);
+		StringBuilder sb = new StringBuilder();
+		for(String arg : args) {
+			sb.append(' ');
+			sb.append(arg);
+		}
+		return sb.substring(1);
 	}
 
 	public static List<String> parseCommand(String command) {
