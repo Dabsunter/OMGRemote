@@ -51,7 +51,7 @@ public class FileCommands implements CommandExecutor {
 					File from = new File(current, move.get(0));
 					File to = new File(current, move.get(1));
 					FileManager.move(from, to);
-					sender.sendMessage("Copied " + from.getCanonicalPath() + " to " + to.getCanonicalPath());
+					sender.sendMessage("Moved " + from.getCanonicalPath() + " to " + to.getCanonicalPath());
 				}
 				break;
 			case "rm":

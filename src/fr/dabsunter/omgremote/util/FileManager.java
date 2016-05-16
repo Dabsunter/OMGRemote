@@ -11,23 +11,21 @@ public class FileManager {
 	
 	public static void copy(File source, File destination) {
 		if(source.isDirectory()) {
-			if(!destination.exists()) {
-				destination.mkdir();
-			}
-			String[] children = source.list();
-			for(int i=0; i<children.length; i++)
-				copy(new File(source, children[i]), new File(destination, children[i]));
+			if(!destination.exists())
+				destination.mkdirs();
+			for(String children : source.list())
+				copy(new File(source, children), new File(destination, children));
 		} else {
 			try {
-			InputStream in = new FileInputStream(source);
-			OutputStream out = new FileOutputStream(destination);
+				InputStream in = new FileInputStream(source);
+				OutputStream out = new FileOutputStream(destination);
 			
-			byte[] buf = new byte[1024];
-			int len;
-			while((len = in.read(buf)) > 0)
-				out.write(buf, 0, len);
-			in.close();
-			out.close();
+				byte[] buf = new byte[1024];
+				int len;
+				while((len = in.read(buf)) > 0)
+					out.write(buf, 0, len);
+				in.close();
+				out.close();
 			} catch(IOException ex) {
 				ex.printStackTrace();
 			}
